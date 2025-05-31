@@ -5,6 +5,7 @@ export const LIST_COUNTRIES = gql`
     countries {
       name
       code
+      capital
     }
   }
 `;

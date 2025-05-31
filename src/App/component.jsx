@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const App = () => {
     const { loading, error, data } = useQuery(LIST_COUNTRIES);
-    if (loading) <p>Loading....</p>
-    if (error) <p>Error...</p>
+    if (loading) <p className="badge rounded-pill bg-success">Loading....</p>
+    if (error) <p className="badge rounded-pill bg-danger">{error}</p>
 
     return (
         <>
@@ -22,12 +22,12 @@ const App = () => {
                                     {value.name}
                                 </h4>
                                 <span className={index % 2 === 0 ? 'text-success' : 'text-danger'}>
-                                    Country Code : {value.code}
+                                    Capital : {value.capital}
                                 </span>
 
                             </div>
                             <div className="col-md-3">
-                                <Link to={`/country/${value.code}`}>Details</Link>
+                                <Link className="btn btn-info" to={`/country/${value.code}`}>Details</Link>
                             </div>
                         </div>
                     </div>)
